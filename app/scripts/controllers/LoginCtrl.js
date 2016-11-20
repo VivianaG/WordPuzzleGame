@@ -7,7 +7,9 @@
  * # LoginCtrl
  * Controller of the wordPuzzleGameApp
  */
-angular.module('wordPuzzleGameApp')
-  .controller('LoginCtrl', function ($scope) {
-     $scope.loginCtrlMessage = "Message from LoginCtrl";
-  });
+ angular.module('wordPuzzleGameApp')
+ .controller('LoginCtrl', ["$scope", "DynamicDataService", function ($scope, DynamicDataService) {
+    $scope.loginCtrlMessage = "Message from LoginCtrl";
+
+    DynamicDataService.connectToDatabase();
+  }]);
