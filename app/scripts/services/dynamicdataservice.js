@@ -32,6 +32,7 @@
         var deferred = $q.defer();
         var result = null;
 
+        this.connectToDatabase();
         firebase.database().ref("users/" + username).on("value", function(snapshot) {
             //if the user doesn't exist
             if(snapshot.val() === null) {
@@ -54,6 +55,7 @@
         var deferred = $q.defer();
         var users = [];
 
+        this.connectToDatabase();
         firebase.database().ref("users/").orderByValue().on("value", function(snapshot) {
             snapshot.forEach(function(data) {
                 users.push({username: data.key, score: data.val().score});
@@ -67,6 +69,7 @@
         var deferred = $q.defer();
         var users = [];
 
+        this.connectToDatabase();
         firebase.database().ref("users/").orderByChild("score").limitToLast(10).on("value", function(snapshot) {
             snapshot.forEach(function(data) {
                 users.push({username: data.key, score: data.val().score});
@@ -82,6 +85,7 @@
         var deferred = $q.defer();
         var words = [];
 
+        this.connectToDatabase();
         firebase.database().ref("words/").orderByValue().on("value", function(snapshot) {
             snapshot.forEach(function(data) {
                 words.push({correctWord: data.key, magledWord: data.val().score});
@@ -92,10 +96,12 @@
     };
 
     this.createUser = function(username) {
+        this.connectToDatabase();
         firebase.database().ref('users/' + username).set({score: 0});
     };
 
     this.updateUserScore = function(username, newScore) {
+        this.connectToDatabase();
         firebase.database().ref('users/' + username).set({score: newScore});
     }
 });
