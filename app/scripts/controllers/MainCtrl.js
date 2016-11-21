@@ -8,6 +8,6 @@
  * Controller of the wordPuzzleGameApp
  */
 angular.module('wordPuzzleGameApp')
-  .controller('MainCtrl', ["$scope", function ($scope) {
-    $scope.mainCtrlMessage = "Message from MainCtrl";
+  .controller('MainCtrl', ["$rootScope", "$scope", function ($rootScope, $scope) {
+    var username = $rootScope.username;
   }]);
