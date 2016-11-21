@@ -87,3 +87,17 @@ a.navbar-brand {
   letter-spacing: 0.5em;
   font-size: 20px;
 }
+
+#user-score {
+  font-size: 24px;
+  float: right;
+}
+
+#countdown {
+   padding-left: 2em;
+   font-size: 18px;
+}
+
+#countdown, #user-score {
+  display: inline-block;
+}

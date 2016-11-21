@@ -4,14 +4,21 @@
 	</div>
 
 	<div class="col-md-8" id="play-game-wrapper">
-		<div ng-show="!vm.gameStarted">
-			<button  type="button" class="btn btn-primary" ng-click="vm.startGame()">Start Game</button>
-			<span class="game-questions">Start a new game?</span>
+		<div>
+			<button ng-show="!vm.gameStarted" type="button" class="btn btn-primary" ng-click="vm.startGame()">Start Game</button>
+
+			<button  ng-show="vm.gameStarted" type="button" class="btn btn-primary" ng-click="vm.endGame()">End Game</button>
+
+			<div id="countdown">
+				<b>Time left:</b> <span class="badge">{{vm.leftTime}}</span>
+			</div>
+
+			<div id="user-score">
+			Score <span class="label label-success">{{vm.user.score}}</span>
+			</div>
 		</div>
 
 		<div ng-show="vm.gameStarted">
-			<button  type="button" class="btn btn-primary" ng-click="vm.endGame()">End Game</button>
-
 			<form class="form-horizontal" id="game">
 				<div class="form-group">
 					<label class="col-md-2 control-label">Magled word:</label>
@@ -34,5 +41,7 @@
 				</div>
 			</form>
 		</div>
+
+
 	</div>
 </div>

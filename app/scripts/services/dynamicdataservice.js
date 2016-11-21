@@ -42,7 +42,7 @@
             }
             //else, get user
             else {
-                result = {username: snapshot.key, score: snapshot.val()};
+                result = {username: snapshot.key, score: snapshot.val().score};
             }
             deferred.resolve(result);
         });

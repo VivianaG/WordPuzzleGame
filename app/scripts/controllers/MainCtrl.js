@@ -15,8 +15,10 @@
 	var self = this;
 
 	this.currentWord = {};
-	this.username = $rootScope.username;
+	this.user = $rootScope.user;
 	this.gameStarted = false;
+	this.score = 0;
+	this.leftTime = 40;
 
 	if(!$rootScope.username) {
 		//go to login page
