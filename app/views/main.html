@@ -25,10 +25,11 @@
 					<div class="col-md-9 magled-word">{{vm.currentWord.magledWord | uppercase}}</div>
 				</div>
 
-				<div class="form-group">
+				<div class="form-group" ng-class="{'has-success has-feedback': (vm.shouldCheckWord && vm.isWordCorrect), 'has-error has-feedback': vm.shouldCheckWord && !vm.isWordCorrect}">
 					<label class="col-md-2 control-label">Correct word:</label>
 					<div class="col-md-9">
 						<input class="form-control" id="correct-word" type="text" ng-model="vm.guessedWord">
+						<span ng-class="{'glyphicon glyphicon-ok form-control-feedback': (vm.shouldCheckWord && vm.isWordCorrect), 'glyphicon glyphicon-remove form-control-feedback': (vm.shouldCheckWord && !vm.isWordCorrect)}"></span>
 					</div>
 				</div>
 

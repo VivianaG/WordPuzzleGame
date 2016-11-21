@@ -8,19 +8,22 @@
  * Controller of the wordPuzzleGameApp
  */
  angular.module('wordPuzzleGameApp')
- .controller('MainCtrl', ["$rootScope", "$scope", "$location", "$interval", "DynamicDataService",
- 	function ($rootScope, $scope, $location, $interval, DynamicDataService) {
+ .controller('MainCtrl', ["$rootScope", "$scope", "$location", "$interval", "$timeout", "DynamicDataService",
+ 	function ($rootScope, $scope, $location, $interval, $timeout, DynamicDataService) {
 
 	var words = [];
 	var remainedWords = [];
 	var self = this;
 
+	$scope.guessedWord = "";
 	this.currentWord = {};
 	this.user = $rootScope.user;
 	this.gameStarted = false;
 	this.score = 0;
 	this.leftTime = 40;
 	this.stopTimer = null;
+	this.shouldCheckWord = false;
+	this.isWordCorrect = false;
 
 	if(!$rootScope.user) {
 		//go to login page
@@ -32,14 +35,14 @@
 
 	this.startGame = function() {
 		this.gameStarted = true;
-
+		this.shouldCheckWord = false;
 		getNextWord();
 		this.stopTimer = startCountdown();
 	};
 
 	this.endGame = function() {
 		this.gameStarted = false;
-
+		this.shouldCheckWord = false;
 		if(this.stopTimer) {
 			stopCountdown();
 		}
@@ -48,6 +51,10 @@
 
 	this.onGetNextWord = function() {
 		getNextWord();
+	}
+
+	this.onWordSubmit = function() {
+		evaluateWord();
 	}
 
 	function getHighScores() {
@@ -78,6 +85,10 @@
 	}
 
 	function getNextWord() {
+		self.shouldCheckWord = false;
+ 		self.isWordCorrect = false;
+		self.guessedWord = "";
+
 		//make sure we have another word in queue
 		if(remainedWords  && remainedWords.length > 0) {
 			self.currentWord = remainedWords[0];
@@ -85,6 +96,21 @@
 		} else {
 			//reset the list of words
 			refreshWordList();
+		}
+	}
+
+	function evaluateWord() {
+		self.shouldCheckWord = true;
+
+		if(self.guessedWord === self.currentWord.correctWord) {
+			self.isWordCorrect = true;
+
+			//keep styling for success active some time
+			$timeout(function() {
+				getNextWord();
+			}, 300);
+		} else {
+			self.isWordCorrect = false;
 		}
 	}
 
