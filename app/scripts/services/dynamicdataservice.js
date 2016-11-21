@@ -11,14 +11,20 @@
  .service('DynamicDataService', function ($http, $q) {
 
     this.connectToDatabase = function() {
-        var config = {
-            apiKey: "AIzaSyC-VHZ6b_lOgP_YUru_7d7NB0oSP3OscJ4",
-            authDomain: "firstproject-772d8.firebaseapp.com",
-            databaseURL: "https://firstproject-772d8.firebaseio.com",
-            storageBucket: "firstproject-772d8.appspot.com",
-            messagingSenderId: "769228797734"
-        };
-        firebase.initializeApp(config);
+        //make sure to initialize the app only once
+
+        //if the app hasn't been initialized yet
+        if(firebase.apps.length === 0) {
+            var config = {
+                apiKey: "AIzaSyC-VHZ6b_lOgP_YUru_7d7NB0oSP3OscJ4",
+                authDomain: "firstproject-772d8.firebaseapp.com",
+                databaseURL: "https://firstproject-772d8.firebaseio.com",
+                storageBucket: "firstproject-772d8.appspot.com",
+                messagingSenderId: "769228797734"
+            };
+            //then, initialize it
+            firebase.initializeApp(config);
+        }
     };
 
     this.getUser = function(username) {
