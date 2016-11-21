@@ -68,9 +68,9 @@
     this.getHighscore = function() {
         var deferred = $q.defer();
         var users = [];
-
         this.connectToDatabase();
         firebase.database().ref("users/").orderByChild("score").limitToLast(10).on("value", function(snapshot) {
+            users.length = 0;
             snapshot.forEach(function(data) {
                 users.push({username: data.key, score: data.val().score});
             });
