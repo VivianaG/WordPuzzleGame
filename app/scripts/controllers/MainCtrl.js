@@ -20,7 +20,7 @@
 	this.score = 0;
 	this.leftTime = 40;
 
-	if(!$rootScope.username) {
+	if(!$rootScope.user) {
 		//go to login page
 		$location.path("/");
 	}
