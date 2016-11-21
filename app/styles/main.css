@@ -101,3 +101,12 @@ a.navbar-brand {
 #countdown, #user-score {
   display: inline-block;
 }
+
+#game-over {
+  color: #ff0000;
+  margin-top: 1em;
+}
+
+#user-best-score {
+  margin-top: 2em;
+}
