@@ -8,7 +8,12 @@
  * Controller of the wordPuzzleGameApp
  */
  angular.module('wordPuzzleGameApp')
- .controller('MainCtrl', ["$rootScope", "$scope", "DynamicDataService", function ($rootScope, $scope, DynamicDataService) {
+ .controller('MainCtrl', ["$rootScope", "$scope", "$location", "DynamicDataService",
+ 	function ($rootScope, $scope, $location, DynamicDataService) {
+	if(!$rootScope.username) {
+		//go to login page
+		$location.path("/");
+	}
 	this.username = $rootScope.username;
 	this.gameStarted = false;
 
