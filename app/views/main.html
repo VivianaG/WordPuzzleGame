@@ -1,3 +1,12 @@
-<div>
+<div class="row" id="game-wrapper">
+	<div class="col-md-3">
+		<high-score info="highScore"></high-score>
+	</div>
 
+	<div class="col-md-8" id="play-game-wrapper">
+		<div ng-show="!vm.gameStarted">
+			<span class="game-questions">Start a new game?</span>
+			<button  type="button" class="btn btn-primary" ng-click="vm.startGame()">Start Game</button>
+		</div>
+	</div>
 </div>

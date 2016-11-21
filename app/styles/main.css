@@ -43,7 +43,33 @@ a.navbar-brand {
   margin-top: 0.5em;
 }
 
+
+#game-wrapper {
+  padding-top: 1em;
+}
+
 #game-description {
   color: #fff;
   margin-top: 1em;
 }
+
+.game-questions {
+  margin-right: 1em;
+  font-size: 16px;
+}
+
+.highscore th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.highscore tr:nth-child(even){
+  background-color: #ff4d4d;
+  color: white;
+}
+
+.highscore tr:nth-child(odd) {
+  background-color: #2d2d2d;
+  color: white;
+}
+

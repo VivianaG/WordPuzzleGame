@@ -27,4 +27,13 @@
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+  .directive('highScore', function() {
+      return {
+        restrict: 'E',
+        scope: {
+          highscoreInfo: '=info'
+        },
+        templateUrl: '../../views/highscore.html',
+      };
+    });
