@@ -90,6 +90,8 @@ angular.module('wordPuzzleGameApp')
 			//check if it is the correct word
 			evaluateWord();
 		}
+		//if the user enters 'arrow right' key,
+		//then get next word
 		else if(key === 39) {
 			this.onGetNextWord();
 		}
