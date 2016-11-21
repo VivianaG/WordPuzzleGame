@@ -1,7 +1,7 @@
 <div class="login form-group">
 	<h2 class="login-heading">Please sign in to play</h2>
 
- 	<input type="text" class="form-control" id="username" placeholder="username" ng-model="username">
+ 	<input type="text" class="form-control" id="username" placeholder="username" ng-model="username" ng-keyup="login.onUserKeyUp($event, username)">
 	<button class="btn btn-md btn-primary btn-block" ng-click="login.connectUser(username)" id="connect-user" type="submit">
 	Play game!
 	</button>
