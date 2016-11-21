@@ -2,8 +2,9 @@
 	<h2 class="login-heading">Please sign in to play</h2>
 
  	<input type="text" class="form-control" id="username" placeholder="username" ng-model="username">
-	<button class="btn btn-md btn-primary btn-block" ng-click="login.connectUser()" id="connect-user" type="submit">
+	<button class="btn btn-md btn-primary btn-block" ng-click="login.connectUser(username)" id="connect-user" type="submit">
 	Play game!
 	</button>
+	<div ng-show="login.invalidUsername" id="invalid-username">Please, enter an username</div>
 </div>
 
