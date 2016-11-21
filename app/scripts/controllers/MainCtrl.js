@@ -8,8 +8,8 @@
  * Controller of the wordPuzzleGameApp
  */
  angular.module('wordPuzzleGameApp')
- .controller('MainCtrl', ["$rootScope", "$scope", "$location", "DynamicDataService",
- 	function ($rootScope, $scope, $location, DynamicDataService) {
+ .controller('MainCtrl', ["$rootScope", "$scope", "$location", "$interval", "DynamicDataService",
+ 	function ($rootScope, $scope, $location, $interval, DynamicDataService) {
 	var words = [];
 	var remainedWords = [];
 	var self = this;
@@ -57,9 +57,9 @@
 		DynamicDataService.getWords().then(
 			function(res) {
 				words = res;
-				remainedWords = res;
+				remainedWords = makeArrayCopy(words);
 				if(words && words.length > 0) {
-					self.currentWord = words[0];
+					self.currentWord = remainedWords[0];
 					remainedWords.shift();
 				}
 			},
@@ -75,8 +75,12 @@
 			self.currentWord = remainedWords[0];
 			remainedWords.shift();
 		} else {
-			getWords();
+			//reset the list of words
+			remainedWords = makeArrayCopy(words);
 		}
 	}
 
+	function makeArrayCopy(arrayToCopy) {
+		return arrayToCopy.slice(0);
+	}
  }]);
