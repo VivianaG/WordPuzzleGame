@@ -13,6 +13,7 @@
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/login.css">
   <!-- endbuild -->
 </head>
 <body ng-app="wordPuzzleGameApp">
@@ -33,9 +34,11 @@
 
       <div class="container">
         <h2 id="game-description"><em>Unmagle how many words as you can in 40 seconds and see how good you are!</em></h2>
-        Example:
-        <div><b>Unmagle word:</b> Z A P Z I</div>
-        <div><b>Correct word:</b> PIZZA</div>
+        <div id="word-puzzle-example">
+          Example:
+          <div><b>Unmagle word:</b> Z A P Z I</div>
+          <div><b>Correct word:</b> P I Z Z A</div>
+        </div>
 
         <div ng-view=""></div>
 

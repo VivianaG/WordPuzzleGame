@@ -8,8 +8,22 @@
  * Controller of the wordPuzzleGameApp
  */
  angular.module('wordPuzzleGameApp')
- .controller('LoginCtrl', ["$scope", "DynamicDataService", function ($scope, DynamicDataService) {
-    $scope.loginCtrlMessage = "Message from LoginCtrl";
-
+ .controller('LoginCtrl', ["$scope", "$location","DynamicDataService", function ($scope, $location, DynamicDataService) {
     DynamicDataService.connectToDatabase();
+
+    this.connectUser = function(username) {
+        //connect existing user or create new user
+        DynamicDataService.getUser(username).then(
+            function (res) {
+                //after connect, redirect page to the main page,
+                //to play the game
+                $location.path("wordpuzzle");
+            },
+            function (err) {
+                console.log(err);
+            }
+            );
+    };
+
+
   }]);
