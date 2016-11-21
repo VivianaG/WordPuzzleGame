@@ -5,8 +5,34 @@
 
 	<div class="col-md-8" id="play-game-wrapper">
 		<div ng-show="!vm.gameStarted">
-			<span class="game-questions">Start a new game?</span>
 			<button  type="button" class="btn btn-primary" ng-click="vm.startGame()">Start Game</button>
+			<span class="game-questions">Start a new game?</span>
+		</div>
+
+		<div ng-show="vm.gameStarted">
+			<button  type="button" class="btn btn-primary" ng-click="vm.endGame()">End Game</button>
+
+			<form class="form-horizontal" id="game">
+				<div class="form-group">
+					<label class="col-md-2 control-label">Magled word:</label>
+					<div class="col-md-9 magled-word">{{vm.currentWord.magledWord | uppercase}}</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-2 control-label">Correct word:</label>
+					<div class="col-md-9">
+						<input class="form-control" id="correct-word" type="text" ng-model="vm.guessedWord">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-md-9 col-md-offset-2 word-game-actions">
+						<button type="button" class="btn btn-primary" ng-click="vm.onWordSubmit()">Submit</button>
+						<button type="button" class="btn btn-primary" ng-click="vm.onGetNextWord()">Next word</button>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</form>
 		</div>
 	</div>
 </div>

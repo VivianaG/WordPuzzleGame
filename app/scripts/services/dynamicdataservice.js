@@ -88,7 +88,7 @@
         this.connectToDatabase();
         firebase.database().ref("words/").orderByValue().on("value", function(snapshot) {
             snapshot.forEach(function(data) {
-                words.push({correctWord: data.key, magledWord: data.val().score});
+                words.push({correctWord: data.key, magledWord: data.val()});
             })
             deferred.resolve(words);
         });

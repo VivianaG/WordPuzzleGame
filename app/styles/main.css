@@ -54,7 +54,7 @@ a.navbar-brand {
 }
 
 .game-questions {
-  margin-right: 1em;
+  margin-left: 1em;
   font-size: 16px;
 }
 
@@ -73,3 +73,17 @@ a.navbar-brand {
   color: white;
 }
 
+#play-game-wrapper {
+  padding-left: 4em;
+}
+
+#game {
+  padding-top: 1em;
+  width: 50em;
+}
+
+.magled-word {
+  color: #4CAF50;
+  letter-spacing: 0.5em;
+  font-size: 20px;
+}
