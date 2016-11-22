@@ -1,9 +1,4 @@
-# word-puzzle-game
-
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.15.1.
-
-## Game
+# Word Puzzle Game
 User receives an magled word and is asked to introduce the correct, unmagled word. If the word to unmagle is "pizza", the application may present the word as 'z p a i z' and the user must enter 'p i z z a'  in this order for the solution to be accepted.
 
 The scoring is as follows:
@@ -22,7 +17,10 @@ The user:
 - to check if the word is correct, the user should click on 'Submit' button or press 'enter' key
 
 ##Implementation
-The application is build by using Yeoman, Grunt, Angular, Bootstrap 3, jQuery for the client side. For the backend side, I used Firebase REST API (https://www.firebase.com/docs/rest/api).
+This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
+version 0.15.1.
+
+The application is developed by using Yeoman, Grunt, Angular, Bootstrap 3, jQuery for the client side. For the backend side, I used Firebase REST API (https://www.firebase.com/docs/rest/api).
 
 ## Build & development
 To be able to play the game in the browser, please follow the next steps:
