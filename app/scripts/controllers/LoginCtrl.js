@@ -10,8 +10,6 @@
  angular.module('wordPuzzleGameApp')
  .controller('LoginCtrl', ["$rootScope", "$location","DynamicDataService", function ($rootScope, $location, DynamicDataService) {
 
-    DynamicDataService.connectToDatabase();
-
     var self = this;
     this.invalidUsername = false;
 
