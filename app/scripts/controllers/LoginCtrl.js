@@ -8,7 +8,7 @@
  * Controller of the wordPuzzleGameApp
  */
  angular.module('wordPuzzleGameApp')
- .controller('LoginCtrl', ["$rootScope", "$location","DynamicDataService", function ($rootScope, $location, DynamicDataService) {
+ .controller('LoginCtrl', ['$rootScope', '$location','DynamicDataService', function ($rootScope, $location, DynamicDataService) {
 
     var self = this;
     this.invalidUsername = false;
@@ -23,7 +23,7 @@
                     $rootScope.user = user;
                     //after connect, redirect page to the main page,
                     //to play the game
-                    $location.path("wordpuzzle");
+                    $location.path('wordpuzzle');
                 },
                 function (err) {
                     console.log(err);
@@ -35,7 +35,7 @@
     };
 
     this.onUserKeyUp = function(event, username) {
-        let key = event.keyCode || event.charCode;
+        var key = event.keyCode || event.charCode;
 
         //if the user presses 'enter' key
         if(key === 13) {
