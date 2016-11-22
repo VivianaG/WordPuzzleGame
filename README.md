@@ -20,7 +20,7 @@ User receives an magled word and is asked to introduce the correct, unmagled wor
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.15.1.
 
-The application is developed using Yeoman 1.8.5, Grunt (grunt-cli v1.5.80.1.13, grunt 0.4.5), Angular 1.5.8, Bootstrap 3,for the client side. For the backend side, I used Firebase REST API (https://www.firebase.com/docs/rest/api).
+The client side of the application is developed using Yeoman 1.8.5, Grunt (grunt-cli v1.5.80.1.13, grunt 0.4.5), Angular 1.5.8, Bootstrap 3. For the backend side, I used Firebase REST API (https://www.firebase.com/docs/rest/api).
 
 ## Build & development
 To be able to play the game in the browser, please follow the next steps:
