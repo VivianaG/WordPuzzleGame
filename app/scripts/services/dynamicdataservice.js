@@ -8,7 +8,7 @@
  * Service in the wordPuzzleGameApp.
  */
  angular.module('wordPuzzleGameApp')
- .service('DynamicDataService', function ($http, $q) {
+ .service('DynamicDataService', ["$http", "$q", "$interval", function ($http, $q, $interval) {
 
     this.getUser = function(username) {
         var self = this;
@@ -67,33 +67,42 @@
 
     this.getHighscore = function() {
         var deferred = $q.defer();
-        var users = [];
         var url = 'https://firstproject-772d8.firebaseio.com/users.json?orderBy="score"&limitToLast=10';
+        var users = [];
 
-        $http.get(url).then(
-            function(res) {
-                var resData = res.data;
-                for(let user in resData) {
-                    users.push({username: user, score: resData[user].score});
-                }
-                //sort them in descending order
-                users.sort(sortDescendingScores);
-                deferred.resolve(users);
+        //show highscore
+        getScores();
+        //refresh highscore
+        $interval(getScores, 10000);
 
-                function sortDescendingScores(a, b) {
-                    if (a.score < b.score)
-                        return 1;
-                    if (a.score > b.score)
-                        return -1;
-                    return 0;
-                }
-            },
-            function(err) {
-                console.log(err);
-                deferred.reject();
-            }
-            );
         return deferred.promise;
+
+        function getScores() {
+            users.length = 0;
+            $http.get(url).then(
+                function(res) {
+                    var resData = res.data;
+                    for(let user in resData) {
+                        users.push({username: user, score: resData[user].score});
+                    }
+                    //sort them in descending order
+                    users.sort(sortDescendingScores);
+                    deferred.resolve(users);
+
+                    function sortDescendingScores(a, b) {
+                        if (a.score < b.score)
+                            return 1;
+                        if (a.score > b.score)
+                            return -1;
+                        return 0;
+                    }
+                },
+                function(err) {
+                    console.log(err);
+                    deferred.reject();
+                }
+            );
+        }
     };
 
 
@@ -153,4 +162,4 @@
             );
         return deferred.promise;
     }
-});
+}]);
