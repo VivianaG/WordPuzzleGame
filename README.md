@@ -23,6 +23,9 @@ version 0.15.1.
 The client side of the application is developed using Yeoman 1.8.5, Grunt (grunt-cli v1.5.80.1.13, grunt 0.4.5), Angular 1.5.8, Bootstrap 3. For the backend side, I used Firebase REST API (https://www.firebase.com/docs/rest/api).
 
 ## Build & development
+The application was developed on Linux 3.13.0-37-generic.
+I used Sublime Text as text editor for my project.
+
 To be able to play the game in the browser, please follow the next steps:
 
 1. clone this repository to your local directory: git clone https://vivianagosa@bitbucket.org/vivianagosa/wordpuzzlegame.git
